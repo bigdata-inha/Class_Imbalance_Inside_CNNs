@@ -16,7 +16,7 @@ Experiment about class imbalance problems inside the CNNs
     <thead> 
      <tr> 
       <th rowspan=2>Dataset</th>
-      <th colspan=2>Cifar10</th>
+      <th colspan=4>Cifar10</th>
      </tr>
      <tr> 
       <th>Major / Minor</th>
