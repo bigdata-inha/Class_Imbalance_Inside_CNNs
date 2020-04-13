@@ -7,8 +7,22 @@ Experiment about class imbalance problems inside the CNNs
 
 # Measures Definition
 1. Neuron Membership
+<table align='center'>
+<tr align='center'>
+</tr>
+<tr>
+<td><img src = 'images/neuron_membership.png' height = '400px'></td>
+</tr>
+</table>
 2. Major class actvation - Minor class activation
 3. Class Selectivity
+<table align='center'>
+<tr align='center'>
+</tr>
+<tr>
+<td><img src = 'images/class_selectivity.png' height = '400px'></td>
+</tr>
+</table>
 
 # Dataset / Model
 1. Data : Cifar10 with different imbalance ratio
@@ -60,7 +74,7 @@ Experiment about class imbalance problems inside the CNNs
 <tr align='center'>
 </tr>
 <tr>
-<td><img src = 'images/CL_cifar100_result.png' height = '400px'></td>
+<td><img src = 'images/neuron_membership_result.png' height = '400px'></td>
 </tr>
 </table>
 
@@ -69,7 +83,7 @@ Experiment about class imbalance problems inside the CNNs
 <tr align='center'>
 </tr>
 <tr>
-<td><img src = 'images/CL_cifar100_result.png' height = '400px'></td>
+<td><img src = 'images/ma-mi_result.png' height = '400px'></td>
 </tr>
 </table>
 
@@ -78,6 +92,6 @@ Experiment about class imbalance problems inside the CNNs
 <tr align='center'>
 </tr>
 <tr>
-<td><img src = 'images/CL_cifar100_result.png' height = '400px'></td>
+<td><img src = 'images/class_selectivity_result.png' height = '400px'></td>
 </tr>
 </table>
