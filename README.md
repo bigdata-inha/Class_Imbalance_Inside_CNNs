@@ -12,6 +12,47 @@ Experiment about class imbalance problems inside the CNNs
 
 # Dataset / Model
 1. Data : Cifar10 with different imbalance ratio
+  <table> 
+    <thead> 
+     <tr> 
+      <th rowspan=2>Dataset</th>
+      <th colspan=2>Cifar10</th>
+      <th rowspan=2>A/B (%)</th>
+     </tr>
+     <tr> 
+      <th>Major / Minor</th>
+      <th>Major class images per group</th>
+      <th>Minor class images per group</th>
+      <th>Accuracy</th>
+     </tr>
+    </thead> 
+    <tbody align='center'> 
+     <tr> 
+      <td>Balanced</td>
+      <td rowspan=4>[0~4] / [5~9]</td>
+      <td rowspan=4>5000</td>
+      <td>5000</td>
+      <td>91.29</td>
+     </tr>
+     <tr> 
+      <td>Imbalance 20</td>
+      <td>250</td>
+      <td>68.93</td>
+     </tr>
+     <tr> 
+      <td>Imbalance 50</td>
+      <td>100</td>
+      <td>58.51</td>
+     </tr>
+     <tr> 
+      <td>Imbalance 100</td>
+      <td>50</td>
+      <td>52.45</td>
+     </tr>
+    </tbody> 
+</table>
+
+
 2. Model : Vgg11 with batch normalization
 
 # Experiment Result
