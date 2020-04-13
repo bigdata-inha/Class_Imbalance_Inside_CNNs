@@ -11,7 +11,7 @@ Experiment about class imbalance problems inside the CNNs
 <tr align='center'>
 </tr>
 <tr>
-<td><img src = 'images/neuron_membership.png' height = '400px'></td>
+<td><img src = 'images/neuron membership.png' height = '400px'></td>
 </tr>
 </table>
 2. Major class actvation - Minor class activation
