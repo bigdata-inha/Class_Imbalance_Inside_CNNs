@@ -17,7 +17,6 @@ Experiment about class imbalance problems inside the CNNs
      <tr> 
       <th rowspan=2>Dataset</th>
       <th colspan=2>Cifar10</th>
-      <th rowspan=2>A/B (%)</th>
      </tr>
      <tr> 
       <th>Major / Minor</th>
