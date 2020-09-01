@@ -5,11 +5,11 @@ import matplotlib.pyplot as plt
 import torch.nn.functional as F
 import torch.optim
 import os
-from dataset import *
-from trainer.trainer_vgg import *
-from trainer.trainer_resnet import *
-from dataset.dataset_cifar import *
-from dataset.dataset_imagenet import *
+from training.dataset import *
+from training.trainer.trainer_vgg import *
+from training.trainer.trainer_resnet import *
+from training.dataset.dataset_cifar import *
+from training.dataset.dataset_imagenet import *
 
 
 
@@ -124,12 +124,7 @@ if __name__ == "__main__" :
     balanced_res32.run(epochs=100)
 '''
 
-
-
 if __name__ == "__main__":
-# vgg imbalance ratio : 20
-# vgg imbalance ratio : 50
-# vgg imbalance ratio : 100
 
     imbalanced_cifar10 = imbalanced_Cifar10(directory=dir10, minority_label=mi_10, majority_label=ma_10,
                                         imbalance_ratio=20)
@@ -165,14 +160,11 @@ if __name__ == "__main__":
 
     del imbalanced_vgg16, balanced_vgg16
 
+''''
 ####################################################resnet########################################################
-'''Cifar 10'''
-'''
-
 
     imbalanced_cifar10 = imbalanced_Cifar10(directory=dir10, minority_label=mi_10, majority_label=ma_10,
                                           imbalance_ratio=20)
-
     imbalanced_trainset = imbalanced_cifar10.imbalance_train_set
     imbalanced_testset = [test_X, test_Y]
 

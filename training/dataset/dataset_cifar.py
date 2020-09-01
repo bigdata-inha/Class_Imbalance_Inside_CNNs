@@ -245,6 +245,61 @@ class imbalanced_Cifar10() :
         del temp_data_X, temp_data_Y
         return imbalanced_dataset
 
+    def make_imbalance_dataset(self, split_dataset, majority_label, minority_label):
+        '''
+
+        :param split_dataset: dataset which is spliited by label
+        :return: imbalanced dataset(dtype : list)
+        '''
+
+        temp_data_X = []
+        temp_data_Y = []
+        for i in majority_label :
+            if i == 10 :
+                break
+            #temp_label = np.where(split_dataset[current_step][1] == i)
+            # np.where 함수 output array형태로 두개 나옴, [0]에 index가 tuple형태
+
+            temp_data_X.append(split_dataset[i][0])
+            temp_data_Y.append(split_dataset[i][1])
+
+        if i==10 :
+            majority_data_X = None
+            majority_data_Y = None
+        else :
+            majority_data_X = np.concatenate(temp_data_X, axis=0)
+            majority_data_Y = np.concatenate(temp_data_Y, axis=0)
+
+        del temp_data_X, temp_data_Y
+
+        temp_data_X = []
+        temp_data_Y = []
+
+        for j in minority_label :
+            temp_index = np.random.choice(np.arange(0, len(split_dataset[j][1])), int(len(split_dataset[j][1])/self.imbalance_ratio),
+                                          replace=False)
+
+            #np.where 함수 output array형태로 두개 나옴, [0]에 index가 tuple형태
+
+            temp_data_X.append(split_dataset[j][0][temp_index])
+            temp_data_Y.append(split_dataset[j][1][temp_index])
+
+        minority_data_X = np.concatenate(temp_data_X, axis=0)
+        minority_data_Y = np.concatenate(temp_data_Y, axis=0)
+
+        if i==10 :
+            imbalanced_data_X = minority_data_X
+            imbalanced_data_Y = minority_data_Y
+        else :
+            imbalanced_data_X = np.concatenate((minority_data_X, majority_data_X), axis=0)
+            imbalanced_data_Y = np.concatenate((minority_data_Y, majority_data_Y), axis=0)
+
+        imbalanced_dataset =[imbalanced_data_X, imbalanced_data_Y]
+
+        del temp_data_X, temp_data_Y
+        return imbalanced_dataset
+
+
 
 class Cifar100() :
     def __init__(self, directory=None, minority_label=None, majority_label=None, imbalance_ratio=None):

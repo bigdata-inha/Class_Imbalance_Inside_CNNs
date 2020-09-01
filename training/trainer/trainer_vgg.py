@@ -1,12 +1,12 @@
 import torchvision.transforms as transforms
 import torch.nn as nn
 import torch.optim as optim
-from dataset import *
+from training.dataset import *
 import torch.utils.data
-from dataset.dataset_cifar import *
-from dataset.data_preprocessing import  *
-from models.models_vgg import *
-import models.models_vgg
+from training.dataset.dataset_cifar import *
+from training.dataset.data_preprocessing import  *
+from training.models.models_vgg import *
+import training.models as models
 
 class imbalanced_VGG16() :
     def __init__(self, trainset=None, testset=None, lr=None, batch_norm=None, imbalance_ratio = None,  mu = None) :
@@ -50,7 +50,7 @@ class imbalanced_VGG16() :
         criterion = nn.CrossEntropyLoss()
 
         for batch_idx, (inputs, targets) in enumerate(trainloader):
-            set_seed(2020)
+            #set_seed(2020)
             inputs = inputs.float().cuda()
             inputs, targets = inputs.to(self.device), targets.to(self.device)
 
@@ -130,7 +130,7 @@ class imbalanced_VGG16() :
     def run(self, epochs):
         global best_acc
         best_acc=0
-        set_seed(2020)
+        #set_seed(2020)
         train_dataset = CustomDataset(self.trainset[0], self.trainset[1], transform=self.transform_train)
         test_dataset = CustomDataset(self.testset[0], self.testset[1], transform=self.transform_test)
 
@@ -149,7 +149,7 @@ class imbalanced_VGG16() :
 
 class balanced_VGG16() :
     def __init__(self, trainset=None, testset=None, lr=None, batch_norm=None) :
-        set_seed(2020)
+        #set_seed(2020)
         self.trainset= trainset
         self.testset = testset
         self.lr = lr
@@ -187,7 +187,7 @@ class balanced_VGG16() :
         criterion = nn.CrossEntropyLoss()
 
         for batch_idx, (inputs, targets) in enumerate(trainloader):
-            set_seed(2020)
+            #set_seed(2020)
             inputs = inputs.float().cuda()
             inputs, targets = inputs.to(self.device), targets.to(self.device)
 
@@ -266,7 +266,7 @@ class balanced_VGG16() :
     def run(self, epochs):
         global best_acc
         best_acc=0
-        set_seed(2020)
+        #set_seed(2020)
         train_dataset = CustomDataset(self.trainset[0], self.trainset[1], transform=self.transform_train)
         test_dataset = CustomDataset(self.testset[0], self.testset[1], transform=self.transform_test)
 
@@ -289,7 +289,7 @@ class imbalanced_VGG16_10() :
         self.testset = testset
         self.lr = lr
         #self.epoch = epoch
-        set_seed(2020)
+        #set_seed(2020)
         self.imbalance_ratio = imbalance_ratio
         self.mu = mu
         self.optimzier = None
@@ -326,7 +326,7 @@ class imbalanced_VGG16_10() :
         criterion = nn.CrossEntropyLoss()
 
         for batch_idx, (inputs, targets) in enumerate(trainloader):
-            set_seed(2020)
+            #set_seed(2020)
             inputs = inputs.float().cuda()
             inputs, targets = inputs.to(self.device), targets.to(self.device)
 
@@ -406,7 +406,7 @@ class imbalanced_VGG16_10() :
     def run(self, epochs):
         global best_acc
         best_acc=0
-        set_seed(2020)
+        #set_seed(2020)
         train_dataset = CustomDataset(self.trainset[0], self.trainset[1], transform=self.transform_train)
         test_dataset = CustomDataset(self.testset[0], self.testset[1], transform=self.transform_test)
 
@@ -425,7 +425,7 @@ class imbalanced_VGG16_10() :
 
 class balanced_VGG16_10() :
     def __init__(self, trainset=None, testset=None, lr=None, batch_norm=None) :
-        set_seed(2020)
+
         self.trainset= trainset
         self.testset = testset
         self.lr = lr
@@ -463,7 +463,7 @@ class balanced_VGG16_10() :
         criterion = nn.CrossEntropyLoss()
 
         for batch_idx, (inputs, targets) in enumerate(trainloader):
-            set_seed(2020)
+            #set_seed(2020)
             inputs = inputs.float().cuda()
             inputs, targets = inputs.to(self.device), targets.to(self.device)
 
@@ -542,7 +542,7 @@ class balanced_VGG16_10() :
     def run(self, epochs):
         global best_acc
         best_acc=0
-        set_seed(2020)
+        #set_seed(2020)
         train_dataset = CustomDataset(self.trainset[0], self.trainset[1], transform=self.transform_train)
         test_dataset = CustomDataset(self.testset[0], self.testset[1], transform=self.transform_test)
 
